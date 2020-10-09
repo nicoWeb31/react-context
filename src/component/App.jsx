@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import UserCreate from './UserCreate';
 
 //context
-import LanguageContext from '../context/LanguageContext';
+import { LanguageStrore } from '../context/LanguageContext';
 import ColorContext from '../context/ColorContext'
+import LanguageSelector from './LanguageSelector';
 
 
 
@@ -11,43 +12,34 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            language: 'english'
         };
     }
-
-
-    onlanguagechange = lang => {
-        this.setState({ language: lang })
-    }
-
 
 
     render() {
         return (
             <div className='ui container'>
-                <div className="">
-                    select a langage :
-                    <i className="flag us" onClick={() => this.onlanguagechange('english')}></i>
-                    <i className="flag nl" onClick={() => this.onlanguagechange('dutch')}></i>
-                </div>
+                <LanguageStrore >
+                    <LanguageSelector />
 
+                </LanguageStrore>
 
 
                 {/* provider tout ce qui est vrapp recoi via le provider les datas donner en value qu'on veut dans le context object*/}
 
                 <h4>avec provider valeur du state</h4>
-                <LanguageContext.Provider value={this.state.language}>
+                <LanguageStrore >
                     <UserCreate />
-                </LanguageContext.Provider>
-
+                </LanguageStrore>
+                
 
                 <h4>avec provider valeur en dur</h4>
-                <LanguageContext.Provider value='dutch'>
+                <LanguageStrore >
                     <ColorContext.Provider value='red'>
                         <UserCreate />
 
                     </ColorContext.Provider>
-                </LanguageContext.Provider>
+                </LanguageStrore>
 
                 <h4>Sans provider valeur de l'object context par default</h4>
                 <UserCreate />
