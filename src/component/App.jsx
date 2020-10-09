@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import UserCreate from './UserCreate'
 
 
 
@@ -27,7 +28,9 @@ class App extends Component {
                 </div>
 
 
-                
+
+
+                <UserCreate/>
 
 
             </div>
