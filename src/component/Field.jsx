@@ -4,17 +4,21 @@ import LanguageContext from '../context/LanguageContext';
 
 class Field extends Component {
 
-    static contextType = LanguageContext;
-
-
 
     render() {
 
-        const txt = this.context === 'english' ? 'Name' : 'Naam'
+        
 
         return (
-            <div className='ui field'>
-                <label>{txt}</label>
+            <div className='ui field red'>
+                <label>
+
+                {/* use cumsumer */}
+                <LanguageContext.Consumer>
+                    {value => value === 'english' ? 'Name' : 'Naam'}
+                </LanguageContext.Consumer>
+
+                </label>
                 <input type="text"/>
             </div>
         );

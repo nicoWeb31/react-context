@@ -3,6 +3,7 @@ import UserCreate from './UserCreate';
 
 //context
 import LanguageContext from '../context/LanguageContext';
+import ColorContext from '../context/ColorContext'
 
 
 
@@ -42,7 +43,10 @@ class App extends Component {
 
                 <h4>avec provider valeur en dur</h4>
                 <LanguageContext.Provider value='dutch'>
-                    <UserCreate />
+                    <ColorContext.Provider value='red'>
+                        <UserCreate />
+
+                    </ColorContext.Provider>
                 </LanguageContext.Provider>
 
                 <h4>Sans provider valeur de l'object context par default</h4>
